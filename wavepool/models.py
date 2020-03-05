@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 import datetime
 
@@ -23,7 +24,7 @@ class NewsPost(models.Model):
 
     @property
     def url(self):
-        return '/news/'
+        return reverse('newspost_detail', kwargs={'newspost_id': self.pk})
 
     @property
     def teaser(self):

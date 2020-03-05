@@ -14,7 +14,7 @@ def front_page(request):
     """
     template = loader.get_template('wavepool/frontpage.html')
     cover_story = NewsPost.objects.all().order_by('?').first()
-    top_stories = NewsPost.objects.all().order_by('?')[3]
+    top_stories = NewsPost.objects.all().order_by('?')[:3]
     other_stories = NewsPost.objects.all().order_by('?')
 
     context = {
@@ -26,9 +26,9 @@ def front_page(request):
     return HttpResponse(template.render(context, request))
 
 
-def newspost(request):
+def newspost_detail(request, newspost_id):
     template = loader.get_template('wavepool/newspost.html')
-    newspost = NewsPost.objects.all().order_by('?').first()
+    newspost = NewsPost.objects.get(pk=newspost_id)
     context = {
         'newspost': newspost
     }
