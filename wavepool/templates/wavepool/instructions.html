@@ -1,13 +1,81 @@
 {% extends 'wavepool/base.html' %}
 
 {% block page_content %}
+
+{% if code_review_defs %}
 	<div id="instructions">
 		<div class="container">
 			<div class="row">
-				<h1>Code Exercise Instructions</h1>
+				<h1>Code Review Assessment</h1>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<h2>Instructions</h2>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<p>For each ticket below, a pull request has been submitted by a junior software engineer. Your task is to review each pull request and provide a critique and suggestions for improvement. We are looking for you to be mindful of code quality and adherance to the ticket's scope.<p>
+
+				</p>If you have a GitHub account, you can leave comments directly on the pull request. Otherwise, write up your review and save it for discussion.</p>
+			</div>
+		</div>
+			{% for ticket in code_review_defs %}
+			<div class="card">
+  				<div class="card-header"><h1 class="card-title">{{ticket.title}}</h1></div>
+  				<div class="card-body">
+  					<p class="card-text">Pull Request: <a href="{{ticket.pull_request}}">{{ticket.pull_request}}</a></p>
+	  				<p class="card-text">{{ticket.description}}</p>
+	  				<p class="card-text">Test suit: <code>python manage.py test wavepool.tests.{{ticket.test_class}}</code></p>
+	  				<h2 class="card-title">Acceptance Criteria:</h2>
+						<ul>
+						{% for ac in ticket.acceptance_criteria %}
+							<li class="instructable-ac">
+								{{ac.description}}<br />
+								Test: <code>python manage.py test wavepool.tests.{{ticket.test_class}}.{{ac.test}}</code>
+							</li>
+						{% endfor %}
+						</ul>
+					</li>
+	  			</div>
+  			</div>
+			{% endfor %}
+	</div>
+{% endif %}
+
+	<div id="instructions">
+		<div class="container">
+			<div class="row">
+				<h1>Code Exercise Assessment</h1>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<h2>Instructions</h2>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
 				<p>For each ticket below, submit a pull request to this repository that completes as many of the acceptance criteria as you can. For each acceptance criteria, a django test is noted which should pass if your solution is valid.<p>
 
 				</p>For each pull request, include instructions for the reviewer to verify the behavior as well as commentary about your solutions. Code comments are encouraged.</p>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<h2>Objectives</h2>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+					<ul>
+						<li>Demonstrate basic web framework competencies using Django and Python</li>
+						<li>Demonstrate ability to read and comprehend user requests and acceptance criteria</li>
+					</ul>
+				</p>
 			</div>
 		</div>
 			{% for ticket in code_exercise_defs %}

@@ -20,11 +20,12 @@ code_exercise_defs = [
                 'description': 'Newspost teasers should be properly rendered as HTML',
                 'test': 'test_newspost_teaser_render'
             },
-        ]
+        ],  
+        'pull_request': 'https://github.com/bomorinid/wavepool-senior/pull/2',      
     },
     {
         'title': 'News post detail page',
-        'description': 'There are several bugs on the news post detail age. Fix these by editing the news post view in views.py and the newspost.html template file. Submit a pull request for a branch titled "yourlastname_yourfirstname_newspost_detail_fixes".',  # noqa
+        'description': 'There are several bugs on the news post detail page. Fix these by editing the news post view in views.py and the newspost.html template file. Submit a pull request for a branch titled "yourlastname_yourfirstname_newspost_detail_fixes".',  # noqa
         'test_class': 'NewsPostDetail',
         'acceptance_criteria': [
             {
@@ -60,7 +61,7 @@ code_exercise_defs = [
     {
         'title': 'CMS forms',
         'description': 'There are several bugs in the CMS for editing news posts. Fix these by editing the admin.py file and the models.py file. Submit a pull request for a branch titled "yourlastname_yourfirstname_cms_fixes"',  # noqa
-        'test_class': 'CmsPage',
+        'test_class': 'CmsPage',        
         'acceptance_criteria': [
             {
                 'description': 'The CMS list page for news posts displays the title of each news post',  # noqa

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from wavepool.models import NewsPost
 from wavepool.code_exercise_defs import code_exercise_defs
+from django.conf import settings
 
 
 def front_page(request):
@@ -38,7 +39,18 @@ def newspost_detail(request, newspost_id):
 
 def instructions(request):
     template = loader.get_template('wavepool/instructions.html')
+    code_exercises = []
+    code_reviews = []
+    for ce in code_exercise_defs:
+        if settings.SENIOR_USER:
+            if ce.get('pull_request'):
+                code_reviews.append(ce)
+            else:
+                code_exercises.append(ce)
+        else:
+            code_exercises = code_exercise_defs
     context = {
-        'code_exercise_defs': code_exercise_defs
+        'code_exercise_defs': code_exercises,
+        'code_review_defs': code_reviews
     }
     return HttpResponse(template.render(context, request))
