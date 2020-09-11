@@ -2,6 +2,22 @@
 {% load static %}
 
 {% block page_content %}
+	<div class="row">
+		<div class="col-2"></div>
+		<div id="newspost-sponsorship" class="col">
+			<a href="#">
+				<div class="row">
+					<div id="sponsor-image" class="col-4">
+						<img src="{% static 'image/fastbanana.png' %}" width="200px" />
+					</div>
+					<div id="sponsor-content" class="col">
+						<span id="sponsor-text">This news post is brought to you by Fast Banana - get your bananas fast!</span>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-2"></div>
+	</div>
 	<div class="newspost-detail">
 		<div class="row"><a href=""><button>edit</button></a></div>
 		<div class="row">
@@ -12,4 +28,10 @@
 			{{ newspost.body|safe }}
 		</div>
 	</div>
+
+	{% if newspost.tags %}
+		<div class="row" id="newspost-topics">
+			Tags: {% for tag in newspost.tags %}{{tag}}{% if not forloop.last %},{% endif %} {% endfor %}
+		</div>
+	{% endif %}
 {% endblock %}

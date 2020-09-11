@@ -103,6 +103,7 @@ h1 .pubdate {
 
 #instructions {
 	color: #000;
+	padding-bottom: 3rem;
 }
 
 #instructions ol {
@@ -143,5 +144,21 @@ h1 .pubdate {
 }
 
 #instructions .card {
-	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+#newspost-sponsorship {
+	border: solid 2px #000000;
+	margin-bottom: 3rem;
+}
+#newspost-sponsorship a:hover {
+	color: initial;
+}
+
+#sponsor-content {
+	background-color: #CCCCCC;
+}
+#sponsor-text {
+	margin-top: .7rem;
+	display: block;
 }

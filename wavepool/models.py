@@ -33,3 +33,8 @@ class NewsPost(models.Model):
     @property
     def source_divesite_name(self):
         return 'Industry Dive'
+
+    def tags(self):
+        return [
+            'HR', 'Diversity & Inclusion', 'Culture'
+        ]
