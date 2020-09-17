@@ -55,6 +55,25 @@ code_exercise_defs = [
         ],     
     },
     {
+        'title': 'CMS forms',
+        'description': 'There are several bugs in the CMS for editing news posts. Fix these by editing the admin.py file and the models.py file. Submit a pull request for a branch titled "yourlastname_yourfirstname_cms_fixes"',  # noqa
+        'test_class': 'CmsPage',        
+        'acceptance_criteria': [
+            {
+                'description': 'The CMS list page for news posts displays the title of each news post',  # noqa
+                'test': 'test_title_shows_on_list_page'
+            },
+            {
+                'description': 'The CMS list of news posts is sorted by the publish date, with the most recent on top',  # noqa
+                'test': 'test_displayed_in_order'
+            },
+            {
+                'description': 'Only one story can be saved as the cover story using the is_cover_story field',  # noqa
+                'test': 'test_only_one_cover_story'
+            },
+        ]
+    },
+    {
         'title': 'News post detail page',
         'description': 'There are several bugs on the news post detail page. Fix these by editing the news post view in views.py and the newspost.html template file. Submit a pull request for a branch titled "yourlastname_yourfirstname_newspost_detail_fixes".',  # noqa
         'test_class': 'NewsPostDetail',
@@ -86,25 +105,6 @@ code_exercise_defs = [
             {
                 'description': 'The source link should contain the name of the specific dive site that source is from. There is a map of dive site short names to their display names in the models.py file',  # noqa
                 'test': 'test_divesite_display_name'
-            },
-        ]
-    },
-    {
-        'title': 'CMS forms',
-        'description': 'There are several bugs in the CMS for editing news posts. Fix these by editing the admin.py file and the models.py file. Submit a pull request for a branch titled "yourlastname_yourfirstname_cms_fixes"',  # noqa
-        'test_class': 'CmsPage',        
-        'acceptance_criteria': [
-            {
-                'description': 'The CMS list page for news posts displays the title of each news post',  # noqa
-                'test': 'test_title_shows_on_list_page'
-            },
-            {
-                'description': 'The CMS list of news posts is sorted by the publish date, with the most recent on top',  # noqa
-                'test': 'test_displayed_in_order'
-            },
-            {
-                'description': 'Only one story can be saved as the cover story using the is_cover_story field',  # noqa
-                'test': 'test_only_one_cover_story'
             },
         ]
     },
