@@ -25,24 +25,26 @@
 				</ul>
 		</div>
 		{% for ticket in code_exercise_defs %}
-			<div class="card">
-					<div class="card-header">
-						<h1 class="card-title">{{ticket.title}}</h1>
+			{% if not show_senior_exercises or show_senior_exercises and ticket.is_senior %}
+				<div class="card">
+						<div class="card-header">
+							<h1 class="card-title">{{ticket.title}}</h1>
+						</div>
+						<div class="card-body">
+						<p class="card-text">{{ticket.description}}</p>
+						<p class="card-text">Test suit: <code>python manage.py test wavepool.tests.{{ticket.test_class}}</code></p>
+						<h2 class="card-title">Acceptance Criteria:</h2>
+							<ul>
+							{% for ac in ticket.acceptance_criteria %}
+								<li class="instructable-ac">
+									{{ac.description}}<br />
+									Test: <code>python manage.py test wavepool.tests.{{ticket.test_class}}.{{ac.test}}</code>
+								</li>
+							{% endfor %}
+							</ul>
 					</div>
-					<div class="card-body">
-					<p class="card-text">{{ticket.description}}</p>
-					<p class="card-text">Test suit: <code>python manage.py test wavepool.tests.{{ticket.test_class}}</code></p>
-					<h2 class="card-title">Acceptance Criteria:</h2>
-						<ul>
-						{% for ac in ticket.acceptance_criteria %}
-							<li class="instructable-ac">
-								{{ac.description}}<br />
-								Test: <code>python manage.py test wavepool.tests.{{ticket.test_class}}.{{ac.test}}</code>
-							</li>
-						{% endfor %}
-						</ul>
 				</div>
-			</div>
+			{% endif %}
 		{% endfor %}
 	</div>
 
@@ -56,9 +58,9 @@
 				<h2>Instructions</h2>
 			</div>
 			<div class="row">
-				<p>For each ticket below, a pull request has been submitted by a junior software engineer. Your task is to review each pull request and provide a critique and suggestions for improvement. We are looking for you to be mindful of code quality and adherance to the ticket's scope.</p>
+				<p>For the ticket below, a pull request has been submitted by a junior software engineer. Your task is to review the pull request and provide a critique and suggestions for improvement. We are looking for you to be mindful of code quality and adherance to the ticket's scope.</p>
 
-				<p>If you have a GitHub account, you can leave comments directly on the pull request. Otherwise, write up your review and save it for discussion.</p>
+				<p>If you are logged in to a GitHub account, you can leave comments directly on the pull request. Otherwise, write up your review in a text document and save it for discussion.</p>
 			</div>			
 			<div class="row">
 				<h2>Objectives</h2>
@@ -99,8 +101,8 @@
 				<h2>Instructions</h2>
 			</div>
 			<div class="row">
-				<p>For each ticket below, come up with a design that solves the request given by the user.</p>
-				<p>This can be pseudo code, a diagram/sketch, or a working branch of this repository.</p>
+				<p>For the ticket below, come up with a design that solves the request given by the user.</p>
+				<p>This can be pseudo code, a diagram/sketch, or a list of technical sub-tasks needed to fullfill the request.</p>
 			</div>			
 			<div class="row">
 				<h2>Objectives</h2>

@@ -53,6 +53,7 @@ code_exercise_defs = [
                 'test': 'test_newspost_teaser_render'
             },
         ],     
+        'is_senior': False,
     },
     {
         'title': 'CMS forms',
@@ -71,7 +72,8 @@ code_exercise_defs = [
                 'description': 'Only one story can be saved as the cover story using the is_cover_story field',  # noqa
                 'test': 'test_only_one_cover_story'
             },
-        ]
+        ],
+        'is_senior': False,
     },
     {
         'title': 'News post detail page',
@@ -106,6 +108,7 @@ code_exercise_defs = [
                 'description': 'The source link should contain the name of the specific dive site that source is from. There is a map of dive site short names to their display names in the models.py file',  # noqa
                 'test': 'test_divesite_display_name'
             },
-        ]
+        ],
+        'is_senior': True,
     },
 ]
