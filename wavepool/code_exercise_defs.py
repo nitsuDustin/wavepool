@@ -9,7 +9,7 @@ code_review_defs = [
             'Newspost teasers should be properly rendered as HTML',
         ],
         'is_senior': True,
-        'pull_request': 'https://github.com/bomorinid/wavepool-senior/pull/2',
+        'pull_request': 'https://github.com/industrydive/wavepool/pull/2',
     },
 ]
 
