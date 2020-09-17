@@ -7,9 +7,9 @@ code_review_defs = [
             'The 3 most recent stories, excluding the cover story, should be displayed under "top stories", ordered by most recent first',  # noqa
             'All news posts that do not appear as the cover story or as top stories should be listed in the archive, ordered by most recent first',  # noqa
             'Newspost teasers should be properly rendered as HTML',
-        ],  
+        ],
         'is_senior': True,
-        'pull_request': 'https://github.com/bomorinid/wavepool-senior/pull/2',      
+        'pull_request': 'https://github.com/industrydive/wavepool/pull/2',
     },
 ]
 
@@ -52,13 +52,13 @@ code_exercise_defs = [
                 'description': 'Newspost teasers should be properly rendered as HTML',
                 'test': 'test_newspost_teaser_render'
             },
-        ],     
+        ],
         'is_senior': False,
     },
     {
         'title': 'CMS forms',
         'description': 'There are several bugs in the CMS for editing news posts. Fix these by editing the admin.py file and the models.py file. Submit a pull request for a branch titled "yourlastname_yourfirstname_cms_fixes"',  # noqa
-        'test_class': 'CmsPage',        
+        'test_class': 'CmsPage',
         'acceptance_criteria': [
             {
                 'description': 'The CMS list page for news posts displays the title of each news post',  # noqa
