@@ -115,7 +115,7 @@ class SiteFrontPage(TestBase):
     def test_cover_story_placement(self):
         """ Verify that the story designated as the cover story appears in the cover story box on the front page
         """
-        cover_story = NewsPost.objects.all().order_by('?').first()
+        cover_story = NewsPost.objects.all().order_by('publish_date').first()
         cover_story.is_cover_story = True
         cover_story.save()
 
