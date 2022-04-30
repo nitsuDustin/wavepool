@@ -25,7 +25,7 @@ def front_page(request):
     
     for post in newsposts:
         # check if post is a cover story
-        # there doesn't seem to be a cover in the dataset so there will not be a cover story
+        # there doesn't seem to be a cover in the dataset so there will not be a cover story unless we check the is cover sotry checkbox in the CMS
         if post.is_cover_story == True:
             cover_story = post
         # get the first top 3 stories and append it to the top_stories list
