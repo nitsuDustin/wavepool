@@ -16,6 +16,9 @@ DIVESITE_SOURCE_NAMES = {
 
 
 class NewsPost(models.Model):
+    def __str__(self) -> str:
+        return self.title
+    
     title = models.CharField(max_length=300)
     body = models.TextField(max_length=3000)
     source = models.URLField()
@@ -38,3 +41,12 @@ class NewsPost(models.Model):
         return [
             'HR', 'Diversity & Inclusion', 'Culture'
         ]
+        
+    def save(self, *args, **kwargs):
+        num_of_cover_story = len(NewsPost.objects.filter(is_cover_story=True))
+        if num_of_cover_story == 0:
+            return super(NewsPost, self).save(*args, **kwargs)
+        else:
+            NewsPost.objects.filter(is_cover_story=True).update(is_cover_story=False)
+            return super(NewsPost, self).save(*args, **kwargs)
+        
