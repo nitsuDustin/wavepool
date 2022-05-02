@@ -21,7 +21,8 @@ def front_page(request):
     top_story_count = 0
     
     # order newsposts by descending order so we get the lastest post first
-    newsposts = NewsPost.objects.all().order_by('-publish_date')
+    # newsposts = NewsPost.objects.all().order_by('-publish_date')
+    newsposts = NewsPost.objects.all().order_by('publish_date')
     
     for post in newsposts:
         # check if post is a cover story
